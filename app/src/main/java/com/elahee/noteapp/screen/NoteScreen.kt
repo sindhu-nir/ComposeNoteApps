@@ -37,6 +37,7 @@ import com.elahee.noteapp.components.NoteButton
 import com.elahee.noteapp.components.NoteInputText
 import com.elahee.noteapp.data.NotesDataSource
 import com.elahee.noteapp.model.Note
+import com.elahee.noteapp.util.fromDate
 import java.time.format.DateTimeFormatter
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -144,7 +145,7 @@ fun NoteRow(
             horizontalAlignment = Alignment.Start) {
             Text(text = note.title, style = MaterialTheme.typography.titleSmall)
             Text(text = note.description, style = MaterialTheme.typography.labelSmall)
-            Text(text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE, d MMM")), style = MaterialTheme.typography.labelSmall)
+            Text(text = fromDate(note.entryDate.time), style = MaterialTheme.typography.labelSmall)
         }
     }
 }
